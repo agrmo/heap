@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Haufen {
 
     public static int elter(ArrayList<Integer> haufen, int i) {
-	return (int) (haufen.get(i) / 2);
+	return (int) (i / 2);
     }
 
     public static int links(ArrayList<Integer> haufen, int i) {
@@ -15,6 +15,12 @@ public class Haufen {
 
     public static int rechts(ArrayList<Integer> haufen, int i) {
 	return haufen.get(2*i + 1);
+    }
+
+    public static void tausche(ArrayList<Integer> haufen, int i, int j) {
+	int izahl = haufen.get(i);
+	haufen.set(i, haufen.get(j));
+	haufen.set(j, izahl);
     }
 
     // Geh durch der Liste und baue einen Binärbaum. Der Wert jedes
@@ -46,20 +52,20 @@ public class Haufen {
 
 	    int indexlinks = 2 * (zindex + 1) - 1;
 	    if (indexlinks < n) {
-		Binaerbaum links = new Binaerbaum(liste[indexlinks]);
+		zbaum.links = new Binaerbaum(liste[indexlinks]);
 
 		System.out.println("Make left node: " + liste[indexlinks]);
 		zulaufenindex.add(indexlinks);
-		zulaufenbaum.add(links);
+		zulaufenbaum.add(zbaum.links);
 	    }
 
 	    int indexrechts = 2 * (zindex + 1);
 	    if (indexrechts < n) {
-		Binaerbaum rechts = new Binaerbaum(liste[indexrechts]);
+		zbaum.rechts = new Binaerbaum(liste[indexrechts]);
 
 		System.out.println("Make right node: " + liste[indexrechts]);
 		zulaufenindex.add(indexrechts);
-		zulaufenbaum.add(rechts);
+		zulaufenbaum.add(zbaum.rechts);
 	    }
 	}
 
