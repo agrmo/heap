@@ -6,7 +6,7 @@ public class Main {
 
     static void beispieleins() {
 	int[] zahlen = new int[] {1,4,5,3};
-
+	
 	Kleinhaufen k = new Kleinhaufen();
 	
 	for (int z : zahlen) {

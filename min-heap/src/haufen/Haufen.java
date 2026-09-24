@@ -52,20 +52,20 @@ public class Haufen {
 
 	    int indexlinks = 2 * (zindex + 1) - 1;
 	    if (indexlinks < n) {
-		Binaerbaum links = new Binaerbaum(liste[indexlinks]);
+		zbaum.links = new Binaerbaum(liste[indexlinks]);
 
 		System.out.println("Make left node: " + liste[indexlinks]);
 		zulaufenindex.add(indexlinks);
-		zulaufenbaum.add(links);
+		zulaufenbaum.add(zbaum.links);
 	    }
 
 	    int indexrechts = 2 * (zindex + 1);
 	    if (indexrechts < n) {
-		Binaerbaum rechts = new Binaerbaum(liste[indexrechts]);
+		zbaum.rechts = new Binaerbaum(liste[indexrechts]);
 
 		System.out.println("Make right node: " + liste[indexrechts]);
 		zulaufenindex.add(indexrechts);
-		zulaufenbaum.add(rechts);
+		zulaufenbaum.add(zbaum.rechts);
 	    }
 	}
 

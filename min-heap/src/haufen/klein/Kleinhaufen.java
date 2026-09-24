@@ -6,7 +6,7 @@ import java.util.ArrayList;
 // Ein Binärbaum, worin jedes Elter kleiner ist.
 public class Kleinhaufen {
 
-    ArrayList<Integer> liste;
+    public ArrayList<Integer> liste;
 
     // Am Anfang ist der Haufen leer.
     public Kleinhaufen() {
@@ -74,7 +74,7 @@ public class Kleinhaufen {
 
     // Füge die Zahl in dem Haufen.
     // Die Größe der Liste wird eine Stelle kleiner.
-    void fuege(int zahl) {
+    public void fuege(int zahl) {
 
 	int index = this.liste.size();
 	this.liste.add(zahl);
@@ -88,8 +88,8 @@ public class Kleinhaufen {
     // 2. Lösche die letzte Zahl
     // 3. Verhaufen nach unten.
     //
-    void loesche(int index) {
-
+    public void loesche(int index) {
+	
 	int endindex = liste.size() - 1;
 	Haufen.tausche(liste, index, endindex);
 	liste.remove(endindex);

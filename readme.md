@@ -4,7 +4,7 @@ Heap implementations.
 
 ## binary-heap
 
-Make a binary heap out of a list.
+Make a binary heap out of a list. Doesn't have to be in heap-order.
 
 ### example
 
@@ -31,6 +31,33 @@ Make left node: 15
 Make right node: 17
 ```
 
+(which is correct)
+
 ## min-heap
 
-A min heap implementation with add, remove, and reheap-up and reheap-down functions.
+A min heap implementation with add, remove, and reheap-up and reheap-down.
+
+### example
+
+Adding the sequence
+
+```
+[21,19,17,16,14,18,12,9,6,4,1]
+```
+
+builds the Min-Heap
+ 
+```
+                                      1
+                                     /\
+                                    /  \
+                                   /    \
+                                  /      \
+                                 4        6
+                                / \      / \
+                               /   \    9  19
+                              14   12  
+                             / \   / \
+                            16 21 17 18
+```
+
