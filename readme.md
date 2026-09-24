@@ -30,3 +30,7 @@ Make right node: 9
 Make left node: 15
 Make right node: 17
 ```
+
+## min-heap
+
+A min heap implementation with add, remove, and reheap-up and reheap-down functions.
