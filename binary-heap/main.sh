@@ -1,1 +1,2 @@
-ant compile && java -cp classes haufen.Main
+mkdir -p classes
+javac -d classes $(find src -type f) && java -cp classes haufen.Main

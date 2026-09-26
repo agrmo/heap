@@ -1,5 +1,6 @@
 package haufen;
 
+import druck.baum.binaer.Binaerbaumdrucker;
 import baum.binaer.Binaerbaum;
 
 // haufen.Main
@@ -7,9 +8,11 @@ import baum.binaer.Binaerbaum;
 public class Main {
 
     static void beispieleins() {
-	int[] l = new int[] {1,2,5,10,3,7,11,15,17,20,9,15,8,16,21};
+	int[] l = new int[] {21,19,17,16,14,18,12,9,6,4,1};
 	
 	Binaerbaum b = Haufen.baumvonliste(l);
+
+	System.out.println(Binaerbaumdrucker.drucke(b));
     }
 
     public static void main(String[] args) {
