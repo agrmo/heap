@@ -18,11 +18,9 @@ public class Kleinhaufen {
 
 	int zahl = liste.get(index);
 	int elter = Haufen.elter(liste, index);
-	System.out.println(index + " elter " + elter);
 	int elterzahl = liste.get(elter);
 
 	if (elterzahl > zahl) {
-	    System.out.println("tausche " + zahl + " " + elterzahl);
 	    Haufen.tausche(liste, index, elter);
 	    this.verhaufenoben(elter);
 	}
@@ -33,7 +31,22 @@ public class Kleinhaufen {
 
 	int n = liste.size();
 
-	if (2 * index > n) {
+	if (2 * (index + 1) > n) {
+	    // Der Knoten steht schon an der letzten Zeile des Baumes.
+	    // Nichts zu tun.
+	    return;
+	}
+
+	if (this.liste.size() < 1) {
+	    // Es gibt nur einen Knoten im Haufen.
+	    // Nichts zu tun.
+	    return;
+	}
+
+	// Vielleicht gibt es nur einen Knoten im Graphen.
+	// Deshalb gibt es beide links und rechts nicht.
+	if (this.liste.size() < 2) {
+	    // Nichts zu tun.	
 	    return;
 	}
 
@@ -41,20 +54,39 @@ public class Kleinhaufen {
 	int j;
 	int jwert;
 	
-	if (2 * index == n) {
+	if (2 * (index + 1) == n) {
 
 	    // Nehme das Ende des Haufens.
-	    j = 2 * index;
+	    j = liste.size() - 1;
 	    jwert = liste.get(j);
 	    
+	} else if (Haufen.rechtsindex(index) >= liste.size()) {
+
+	    // Es gibt nur ein Kind.
+	    //
+	    //                o
+	    //               / \
+	    //          links   nichts
+	    //
+	    // Nehme das Kind.
+
+	    j = Haufen.linksindex(index);
+	    jwert = liste.get(j);
+
 	} else {
 
-	    // garantiert 2 * index < n
 
+	    // Es gibt zwei Kinder.
+	    //
+	    //                o
+	    //               / \
+	    //          links   rechts
+	    //
 	    // Nehme das Kind mit kleinerem Wert.
-	    int linksindex = Haufen.links(liste, index);
+
+	    int linksindex = Haufen.linksindex(index);
 	    int linkswert = liste.get(linksindex);
-	    int rechtsindex = Haufen.rechts(liste, index);
+	    int rechtsindex = Haufen.rechtsindex(index);
 	    int rechtswert = liste.get(rechtsindex);
 
 	    if (linkswert < rechtswert) {
@@ -67,8 +99,8 @@ public class Kleinhaufen {
 	}
 
 	if (jwert < indexwert) {
-	    Haufen.tausche(liste, jwert, indexwert);
-	    verhaufenunten(jwert);
+	    Haufen.tausche(liste, index, j);
+	    verhaufenunten(j);
 	}
     }
 
@@ -89,7 +121,6 @@ public class Kleinhaufen {
     // 3. Verhaufen nach unten.
     //
     public void loesche(int index) {
-	
 	int endindex = liste.size() - 1;
 	Haufen.tausche(liste, index, endindex);
 	liste.remove(endindex);

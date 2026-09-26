@@ -62,3 +62,10 @@ builds the Min-Heap
                             16 21 17 18
 ```
 
+and then repeatedly removing index 0 and reheaping downward results in the sorted list
+
+```
+[1,4,6,9,12,14,16,17,18,19,21]
+```
+
+a.k.a heapsort.
