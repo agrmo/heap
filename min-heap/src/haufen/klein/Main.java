@@ -1,7 +1,7 @@
 package haufen.klein;
 
 import java.util.ArrayList;
-import druck.liste.Listedrucker;
+import java.util.Arrays;
 
 // haufen.klein.Main
 
@@ -16,14 +16,16 @@ public class Main {
 	    k.fuege(z);
 	}
 
-	ArrayList<Integer> sortiert = new ArrayList<Integer>();
+	int[] sortiert = new int[zahlen.length];
+	int index = 0;
 	
 	while (k.liste.size() > 0) {
-	    sortiert.add(k.liste.get(0));
+	    sortiert[index] = k.liste.get(0);
+	    index += 1;
 	    k.loesche(0);
 	}
 
-	System.out.println(Listedrucker.druckeliste(sortiert));
+	System.out.println(Arrays.toString(sortiert));
     }
 
     public static void main(String[] args) {
