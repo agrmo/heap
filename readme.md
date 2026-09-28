@@ -21,7 +21,7 @@ generates the binary tree
 in other words
 
 ```
-                                      21
+                                     21
                                      /\
                                     /  \
                                    /    \
@@ -69,3 +69,23 @@ and then repeatedly removing index 0 and reheaping downward results in the sorte
 ```
 
 a.k.a heapsort.
+
+## t-min-heap
+
+A min-heap implementation that keeps track of a partner `<T>` value. Basically a generic priority queue. Useful for maintaining heaps of nodes, edges, etc.
+
+### example
+
+```
+[21, 17, 19]
+[1, 2, 3]
+```
+
+is sorted into
+
+```
+[17, 19, 21]
+[2, 3, 1]
+```
+
+in O(nlogn) time.
