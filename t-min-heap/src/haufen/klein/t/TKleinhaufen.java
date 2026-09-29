@@ -29,7 +29,9 @@ public class TKleinhaufen<T> {
     }
 
     // Verhaufe die Zahl nach oben (wenn sie zu klein ist).
-    void verhaufenoben(int index) {
+    //
+    // Gib den neuen Index dieses Knotens aus.
+    public int verhaufenoben(int index) {
 
 	int zahl = liste.get(index);
 	int elter = Haufen.elter(liste, index);
@@ -37,8 +39,10 @@ public class TKleinhaufen<T> {
 
 	if (elterzahl > zahl) {
 	    tausche(index, elter);
-	    verhaufenoben(elter);
+	    return verhaufenoben(elter);
 	}
+
+	return index;
     }
 
     // Verhaufe die Zahl nach unten (wenn sie groß ist).
@@ -121,12 +125,14 @@ public class TKleinhaufen<T> {
 
     // Füge die Zahl in dem Haufen.
     // Die Größe der Liste wird eine Stelle kleiner.
-    public void fuege(int zahl, T p) {
+    //
+    // Gib die neue Stelle der Zahl im Haufen aus.
+    public int fuege(int zahl, T p) {
 
 	int index = this.liste.size();
 	this.liste.add(zahl);
 	this.partner.add(p);
-	this.verhaufenoben(index);
+	return this.verhaufenoben(index);
     }
 
     // Lösche die Zahl aus dem Haufen.
